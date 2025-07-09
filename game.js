@@ -181,6 +181,19 @@ function create() {
 
   // Collision detection
   this.physics.add.collider(bird, pipes, gameOverHandler, null, this);
+
+  this.add.text(
+    this.scale.width / 2,
+    this.scale.height - 30,
+    "By hoangTom",
+    {
+      fontSize: "20px",
+      fill: "#fff",
+      fontFamily: "Arial",
+      stroke: "#000",
+      strokeThickness: 3,
+    }
+  ).setOrigin(0.5, 1);
 }
 
 function update() {
