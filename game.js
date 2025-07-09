@@ -1,13 +1,19 @@
 const config = {
   type: Phaser.AUTO,
-  width: 800,
-  height: 600,
+  width: window.innerWidth,
+  height: window.innerHeight,
   physics: {
     default: "arcade",
     arcade: {
       gravity: { y: 1200 },
       debug: false,
     },
+  },
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+    width: window.innerWidth,
+    height: window.innerHeight,
   },
   scene: {
     preload: preload,
@@ -107,8 +113,8 @@ function create() {
   background = this.add.tileSprite(
     0,
     0,
-    config.width,
-    config.height,
+    this.scale.width,
+    this.scale.height,
     "background"
   );
   background.setOrigin(0, 0);
@@ -117,8 +123,8 @@ function create() {
   // Create ground
   ground = this.add.tileSprite(
     0,
-    config.height - 112,
-    config.width,
+    this.scale.height - 112,
+    this.scale.width,
     112,
     "ground"
   );
